@@ -47,5 +47,15 @@ namespace TalentScore.Services
 
 
         }
+
+        public async Task<byte[]> GetBytesAsync(IFormFile file)
+        {
+            await using var stream = file.OpenReadStream();
+            using var memorySystem = new MemoryStream();
+            await stream.CopyToAsync(memorySystem);
+            var bytes = memorySystem.ToArray();
+
+            return bytes;
+        }
     }
 }
