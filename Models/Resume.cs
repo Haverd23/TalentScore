@@ -8,7 +8,7 @@
         public string? Phone { get; private set; }
         public int Score { get; private set; }
 
-        public Resume(Guid id, string name, string email, string? phone, int score)
+        public Resume(string name, string email, string? phone, int score)
         {
             Id = Guid.NewGuid();
             Name = name;
